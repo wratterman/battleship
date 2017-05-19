@@ -6,6 +6,9 @@ class Battleship
   end
 
   def start_game
-    "Welcome to BATTLESHIP\n\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
+    puts "Welcome to BATTLESHIP\n\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
   end
 end
+
+a = Battleship.new
+a.start_game
