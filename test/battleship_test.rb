@@ -21,5 +21,19 @@ class BattleshipTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_you_can_choose_a_skill_level
+  def test_there_is_a_start_game_method
+    ship = Battleship.new
+    expected = String
+    actual = ship.start_game.class
+
+    assert_equal expected, actual
+  end
+
+  def test_that_start_game_method_has_a_message
+    ship = Battleship.new
+    expected = "Welcome to BATTLESHIP\n\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
+    actual = ship.start_game
+
+    assert_equal expected, actual
+  end
 end
