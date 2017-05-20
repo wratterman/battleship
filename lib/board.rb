@@ -1,17 +1,7 @@
 class Board
 
   def print_board
-    "=============================
-    .     1     2     3     4
-
-    A
-
-    B
-
-    C
-
-    D
-    =============================="
+    top_row + "\n.     1     2     3     4\n\nA\n\nB\n\nC\n\nD\n=============================="
   end
 
   def coordinates
@@ -21,4 +11,10 @@ class Board
     ["D1", "D2", "D3", "D4"]]
   end
 
+  def top_row
+    "============================="
+  end
+
 end
+
+a = Board.new
