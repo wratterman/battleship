@@ -12,4 +12,12 @@ class BoardTest < Minitest::Test
 
     assert_equal expected, actual
   end
+
+  def test_that_it_has_a_board
+    b = Board.new
+    expected = " "
+    actual = b.print_board
+
+    assert_equal expected, actual
+  end
 end
