@@ -15,8 +15,30 @@ class BoardTest < Minitest::Test
 
   def test_that_it_has_a_board
     b = Board.new
-    expected = " "
+    expected =
+    "=============================
+    .     1     2     3     4
+
+    A
+
+    B
+
+    C
+
+    D
+    =============================="
     actual = b.print_board
+
+    assert_equal expected, actual
+  end
+
+  def test_it_has_coordinates
+    b = Board.new
+    expected = [["A1", "A2", "A3", "A4"],
+               ["B1", "B2", "B3", "B4"],
+               ["C1", "C2", "C3", "C4"],
+               ["D1", "D2", "D3", "D4"]]
+    actual = b.coordinates
 
     assert_equal expected, actual
   end
