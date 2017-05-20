@@ -1,4 +1,4 @@
-class Battleship
+class StarGame
   attr_reader :board, :input
 
   def initialize
@@ -30,5 +30,5 @@ class Battleship
   end
 end
 
-a = Battleship.new
+a = StarGame.new
 a.start_game
