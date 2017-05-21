@@ -36,4 +36,28 @@ class MessagesTest < Minitest::Test
 
     assert_equal expected, actual
   end
+
+  def test_it_has_a_starting_game_message
+    m = Messages.new
+    expected = "Staring game..."
+    actual = m.starting_new_game
+
+    assert_equal expected, actual
+  end
+
+  def test_it_has_an_invalid_input_message
+    m = Messages.new
+    expected = "*BUZZ* Invalid input.\nDon't make this a habit, it might cost you in the open ocean."
+    actual = m.invalid_input
+
+    assert_equal expected, actual
+  end
+
+  def test_it_has_a_quit_message
+    m = Messages.new
+    expected = "I hope you understand the ramifications of your actions...\nQuitting game."
+    actual = m.quit_game
+
+    assert_equal expected, actual
+  end
 end
