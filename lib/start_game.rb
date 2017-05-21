@@ -1,3 +1,5 @@
+require './lib/messages'
+
 class StarGame
   attr_reader :board, :input
 
