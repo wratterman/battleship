@@ -16,7 +16,7 @@ class BoardTest < Minitest::Test
   def test_that_it_has_a_board
     b = Board.new
     expected =
-    "=============================\n.     1     2     3     4\n\nA     .     .     .     .\n\nB     .     .     .     .\n\nC     .     .     .     .\n\nD     .     .     .     .\n=============================="
+    "\n         BATTLESHIP          \n=============================\n.     1     2     3     4\n\nA     .     .     .     .\n\nB     .     .     .     .\n\nC     .     .     .     .\n\nD     .     .     .     .\n=============================="
     actual = b.print_board
 
     assert_equal expected, actual
@@ -29,6 +29,14 @@ class BoardTest < Minitest::Test
                ["C1", "C2", "C3", "C4"],
                ["D1", "D2", "D3", "D4"]]
     actual = b.coordinates
+
+    assert_equal expected, actual
+  end
+
+  def test_it_has_a_title_row
+    b = Board.new
+    expected = "         BATTLESHIP          "
+    actual = b.title_row
 
     assert_equal expected, actual
   end
@@ -52,7 +60,7 @@ class BoardTest < Minitest::Test
   def test_it_displays_correctly_when_second_row_is_called_in_print_board
     b = Board.new
     expected =
-    "=============================\n.     1     2     3     4\n\nA     .     .     .     .\n\nB     .     .     .     .\n\nC     .     .     .     .\n\nD     .     .     .     .\n=============================="
+    "\n         BATTLESHIP          \n=============================\n.     1     2     3     4\n\nA     .     .     .     .\n\nB     .     .     .     .\n\nC     .     .     .     .\n\nD     .     .     .     .\n=============================="
     actual = b.print_board
 
     assert_equal expected, actual

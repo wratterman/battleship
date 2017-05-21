@@ -1,7 +1,7 @@
 class Board
 
   def print_board
-    top_row + second_row + "\n" + third_row + "\n" + fourth_row + "\n" + fifth_row + "\n" + sixth_row + last_row
+    "\n" + title_row + "\n" + top_row + second_row + "\n" + third_row + "\n" + fourth_row + "\n" + fifth_row + "\n" + sixth_row + last_row
   end
 
   def coordinates
@@ -9,6 +9,10 @@ class Board
     ["B1", "B2", "B3", "B4"],
     ["C1", "C2", "C3", "C4"],
     ["D1", "D2", "D3", "D4"]]
+  end
+
+  def title_row
+    "BATTLESHIP".center(29)
   end
 
   def top_row
