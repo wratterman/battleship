@@ -13,14 +13,6 @@ class StartGameTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_it_has_a_board
-    game = StartGame.new
-    expected = []
-    actual = game.board
-
-    assert_equal expected, actual
-  end
-
   def test_there_is_a_start_game_method
     game = StartGame.new
     expected = String #puts message returns nil
@@ -29,35 +21,17 @@ class StartGameTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_that_start_game_method_has_a_message
+  def test_it_reads_messages_from_message_file_in_start_game
     game = StartGame.new
-    user_input = ["p", "i", "q"]
-    expected = user_input.any?
+    expected = "Welcome to BATTLESHIP\n\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
     actual = game.start_game
 
     assert_equal expected, actual
   end
 
-  def test_that_it_gets_input_from_the_user_after_start_game_message
+  def test_it_reads_instructions_from_messages
     game = StartGame.new
-    user_input = ["p", "i", "q"]
-    expected = user_input.any?
-    actual = game.get_input #manually typing in 'yes' when prompted
-
-    assert_equal expected, actual
-  end
-
-  def test_that_if_user_presses_p_the_game_is_ready_to_play
-    game = StartGame.new
-    expected = "starting game"
-    actual = game.play_game
-
-    assert_equal expected, actual
-  end
-
-  def test_that_if_user_presses_i_they_can_read_the_instructions
-    game = StartGame.new
-    expected = "If you don't know how to play I can't help you"
+    expected = "Out in the open ocean, a storm approaches. Not one that brings\nthunder nor lightning. This storm is your challenger, and they\nbring ships and fire power.... continue later"
     actual = game.read_instructions
 
     assert_equal expected, actual
