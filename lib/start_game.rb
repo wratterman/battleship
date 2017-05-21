@@ -14,4 +14,8 @@ class StartGame
   def read_instructions
     message.instructions
   end
+
+  def quit
+    message.quit_game
+  end
 end

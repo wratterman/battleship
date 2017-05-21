@@ -36,4 +36,12 @@ class StartGameTest < Minitest::Test
 
     assert_equal expected, actual
   end
+
+  def test_it_reads_quit_message
+    game = StartGame.new
+    expected = "I hope you understand the ramifications of your actions...\nQuitting game."
+    actual = game.quit
+
+    assert_equal expected, actual
+  end
 end

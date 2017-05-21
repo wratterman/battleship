@@ -16,7 +16,7 @@ class BoardTest < Minitest::Test
   def test_that_it_has_a_board
     b = Board.new
     expected =
-    "=============================\n.     1     2     3     4\n\nA                        \n\nB                        \n\nC                        \n\nD                        \n=============================="
+    "=============================\n.     1     2     3     4\n\nA     .     .     .     .\n\nB     .     .     .     .\n\nC     .     .     .     .\n\nD     .     .     .     .\n=============================="
     actual = b.print_board
 
     assert_equal expected, actual
@@ -52,7 +52,7 @@ class BoardTest < Minitest::Test
   def test_it_displays_correctly_when_second_row_is_called_in_print_board
     b = Board.new
     expected =
-    "=============================\n.     1     2     3     4\n\nA                        \n\nB                        \n\nC                        \n\nD                        \n=============================="
+    "=============================\n.     1     2     3     4\n\nA     .     .     .     .\n\nB     .     .     .     .\n\nC     .     .     .     .\n\nD     .     .     .     .\n=============================="
     actual = b.print_board
 
     assert_equal expected, actual
@@ -60,7 +60,7 @@ class BoardTest < Minitest::Test
 
   def test_it_has_a_third_row_from_coordinates
     b = Board.new
-    expected = "\nA                        "
+    expected = "\nA     .     .     .     ."
     actual = b.third_row
 
     assert_equal expected, actual
@@ -68,7 +68,7 @@ class BoardTest < Minitest::Test
 
   def test_it_has_a_fourth_row_form_coordinates
     b = Board.new
-    expected = "\nB                        "
+    expected = "\nB     .     .     .     ."
     actual = b.fourth_row
 
     assert_equal expected, actual
@@ -76,7 +76,7 @@ class BoardTest < Minitest::Test
 
   def test_it_has_a_fifth_row_form_coordinates
     b = Board.new
-    expected = "\nC                        "
+    expected = "\nC     .     .     .     ."
     actual = b.fifth_row
 
     assert_equal expected, actual
@@ -84,7 +84,7 @@ class BoardTest < Minitest::Test
 
   def test_it_has_a_sixth_row_form_coordinates
     b = Board.new
-    expected = "\nD                        "
+    expected = "\nD     .     .     .     ."
     actual = b.sixth_row
 
     assert_equal expected, actual
