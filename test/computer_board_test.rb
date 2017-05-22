@@ -21,20 +21,28 @@ class ComputerBoardTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_it_has_a_first_coordinate_method
+  def test_it_gets_coordinates
     c = ComputerBoard.new
-    expected = c.computer_board.coordinates.any?
-    actual = c.first_cord
+    expected = ["B1", "B2"]
+    actual = c.get_computer_coordinates
 
-    assert expected, actual
+    assert_equal expected, actual
   end
 
-  def test_it_has_a_second_coordinate_method
-    c = ComputerBoard.new
-    c.first_cord
-    expected = c.computer_board.coordinates.any?
-    actual = c.second_cord
-
-    assert expected, actual
-  end
+  # def test_it_has_a_first_coordinate_method
+  #   c = ComputerBoard.new
+  #   expected = c.computer_board.coordinates.any?
+  #   actual = c.first_cord
+  #
+  #   assert_equal expected, actual
+  # end
+  #
+  # def test_it_has_a_second_coordinate_method
+  #   c = ComputerBoard.new
+  #   c.first_cord
+  #   expected = c.computer_board.coordinates.any?
+  #   actual = c.second_cord
+  #
+  #   assert_equal expected, actual
+  # end
 end
