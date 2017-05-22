@@ -2,6 +2,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/computer_board'
+require 'pry'
 
 class ComputerBoardTest < Minitest::Test
 
@@ -21,13 +22,38 @@ class ComputerBoardTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_it_gets_coordinates
+  def test_it_accesses_coordinates_from_board_file
     c = ComputerBoard.new
-    expected = ["B1", "B2"]
-    actual = c.get_computer_coordinates
+    var = c.first_cord
+    first_var = var[0]
+    second_var = var[1]
 
-    assert_equal expected, actual
+    assert (("A".."D").to_a).include?(first_var)
+    assert (("1".."4").to_a).include?(second_var)
   end
+
+  def test_it_runs_first_cord_method_and_stores_through_get_coordinates_method
+    c = ComputerBoard.new
+    var = c.get_computer_coordinates_two_ship.join
+    first_var = var[0]
+    second_var = var[1]
+
+    assert (("A".."D").to_a).include?(first_var)
+    assert (("1".."4").to_a).include?(second_var)
+  end
+
+  def test_it_stores_first_cord_into_two_ship_coordinates
+    c = ComputerBoard.new
+    c.get_computer_coordinates_two_ship.join
+    var = c.two_ship_coordinates.join
+    first_var = var[0]
+    second_var = var[1]
+
+    assert (("A".."D").to_a).include?(first_var)
+    assert (("1".."4").to_a).include?(second_var)
+  end
+
+
 
   # def test_it_has_a_first_coordinate_method
   #   c = ComputerBoard.new
