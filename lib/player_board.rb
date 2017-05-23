@@ -15,7 +15,7 @@ class PlayerBoard
     @third_coord = third_coord
   end
 
-  def place_ships_message
+  def place_ships
     puts message.two_unit_ship_placement
     place_two_unit_ship
     puts "Enter the squares for the three_unit ship: "
@@ -174,7 +174,7 @@ class PlayerBoard
     elsif user_three_unit_ship[0][1] == coord[1]
       one_unit_vertical_3_unit(coord)
     else
-      puts message.invalid_input_too_many_units_away_two_ship
+      puts message.invalid_input_too_many_units_away_three_ship
       false
     end
   end
@@ -222,14 +222,40 @@ class PlayerBoard
   end
 
   def three_ship_veritical_verification(coord)
-    if check_if_valid(coord) == true && has_not_already_been_placed_at_all(coord) == true
+    if check_if_valid(coord) == true && has_not_already_been_placed_at_all(coord) == true && position_in_line_vert(coord)
       true
+    else
+      false
+    end
+  end
+
+  def position_in_line_vert(coord)
+    if (user_three_unit_ship[0][0].ord - coord[0].ord).abs == 2 && (user_three_unit_ship[1][0].ord - coord[0].ord).abs == 1
+      true
+    elsif (user_three_unit_ship[0][0].ord - coord[0].ord).abs == 1 && (user_three_unit_ship[1][0].ord - coord[0].ord).abs == 2
+      true
+    else
+      puts message.invalid_input_too_many_units_away_three_ship
+      false
     end
   end
 
   def three_ship_horizontal_verification(coord)
-    if check_if_valid(coord) == true && has_not_already_been_placed_at_all(coord) == true
+    if check_if_valid(coord) == true && has_not_already_been_placed_at_all(coord) == true && position_in_line_horizontal(coord) == true
       true
+    else
+      false
+    end
+  end
+
+  def position_in_line_horizontal(coord)
+    if (user_three_unit_ship[0][1].to_i - coord[1].to_i).abs == 2 && (user_three_unit_ship[1][1].to_i - coord[1].to_i).abs == 1
+      true
+    elsif (user_three_unit_ship[0][1].to_i - coord[1].ord).abs == 1 && (user_three_unit_ship[1][1].to_i - coord[1].to_i).abs == 2
+      true
+    else
+      puts message.invalid_input_too_many_units_away_three_ship
+      false
     end
   end
 

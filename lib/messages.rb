@@ -28,6 +28,10 @@ class Messages
     "Remember, your ship is only two units long and needs to run vertically or horizontally. Please re-enter coordinate: "
   end
 
+  def invalid_input_too_many_units_away_three_ship
+    "Remember, your ship is only three units long and needs to run vertically or horizontally. Please re-enter coordinate: "
+  end
+
   def quit_game
     "I hope you understand the ramifications of your actions...\nQuitting game."
   end
