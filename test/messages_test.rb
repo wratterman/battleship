@@ -69,5 +69,4 @@ class MessagesTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_it_takes_user_input_from_terminal_and_saves_it_as_first_coordinate_for_two_ships
 end

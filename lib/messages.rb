@@ -17,7 +17,15 @@ class Messages
   end
 
   def invalid_input
-    "*BUZZ* Invalid input.\nDon't make this a habit, it might cost you in the open ocean."
+    "*BUZZ* Invalid input. That coordinate doesn't exist on the board.\nDon't make this a habit, it might cost you in the open ocean."
+  end
+
+  def invalid_input_overlap
+    "*BUZZ* Invalid input. You already have a ship placed there. \nDon't make this a habit, it might cost you in the open ocean."
+  end
+
+  def invalid_input_too_many_units_away_two_ship
+    "Remember, your ship is only two units long and needs to run vertically or horizontally. Please re-enter coordinate: "
   end
 
   def quit_game
