@@ -5,8 +5,6 @@ class ComputerBoard
   attr_reader :computer_board, :two_ship_coordinates, :three_ship_coordinates, :latitude, :longitude
 
   def initialize
-    # @two_ship_coordinates = []
-    # @three_ship_coordinates = []
     @computer_board = Board.new
     @longitude = 0
     @latitude = 0
