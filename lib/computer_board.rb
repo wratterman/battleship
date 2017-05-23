@@ -25,7 +25,7 @@ class ComputerBoard
   end
 
   def get_computer_coordinates_two_ship
-    @three_ship_coordinates = []
+    @two_ship_coordinates = []
     2.times do
       sorting_into_two_ship
     end
