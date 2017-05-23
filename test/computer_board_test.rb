@@ -69,6 +69,24 @@ class ComputerBoardTest < Minitest::Test
     assert (0 .. 3).include?(var)
   end
 
+  def test_get_computer_coordinates_works_for_three_ships
+    c = ComputerBoard.new
+    var = c.get_computer_coordinates_three_ship.join
+    first_var = var[0]
+    second_var = var[1]
+    third_var = var[2]
+    fourth_var = var[3]
+    fifth_var = var[4]
+    sixth_var = var[5]
+
+    assert (("A".."D").to_a).include?(first_var)
+    assert (("1".."4").to_a).include?(second_var)
+    assert (("A".."D").to_a).include?(third_var)
+    assert (("1".."4").to_a).include?(fourth_var)
+    assert (("A".."D").to_a).include?(fifth_var)
+    assert (("1".."4").to_a).include?(sixth_var)
+  end
+
   # def test_it_has_a_first_coordinate_method
   #   c = ComputerBoard.new
   #   expected = c.computer_board.coordinates.any?

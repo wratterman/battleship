@@ -5,18 +5,27 @@ class ComputerBoard
   attr_reader :computer_board, :two_ship_coordinates, :three_ship_coordinates, :latitude, :longitude
 
   def initialize
+    # @two_ship_coordinates = []
+    # @three_ship_coordinates = []
     @computer_board = Board.new
-    @two_ship_coordinates = []
-    @three_ship_coordinates = []
     @longitude = 0
     @latitude = 0
   end
 
-  def show_coordinates
-    print "Two Ships: #{get_computer_coordinates_two_ship}, Three Ship: #{get_computer_coordinates_three_ship}"
+  def get_coordinates
+    get_computer_coordinates_two_ship
+    get_computer_coordinates_three_ship
+
+    until any_dupicate_coordinates == true
+      get_computer_coordinates_two_ship
+      get_computer_coordinates_three_ship
+    end
+
+    print "Two Ships: #{@two_ship_coordinates}, Three Ship: #{@three_ship_coordinates}"
   end
 
   def get_computer_coordinates_two_ship
+    @three_ship_coordinates = []
     2.times do
       sorting_into_two_ship
     end
@@ -81,6 +90,7 @@ class ComputerBoard
   end
 
   def get_computer_coordinates_three_ship
+    @three_ship_coordinates = []
     range = [0, 1, 2, 3]
     @longitude = range.sample
     @latitude = range.sample
@@ -93,7 +103,7 @@ class ComputerBoard
         @three_ship_coordinates << third_cord
       end
     end
-    @three_ship_coordinates
+    return three_ship_coordinates
   end
 
   def third_cord
@@ -135,7 +145,7 @@ class ComputerBoard
       else
         third_computer_coordinate = [(computer_board.coordinates[@longitude -1][@latitude]), (computer_board.coordinates[@longitude + 2][@latitude])].sample
       end
-    elsif three_ship_coordinates[0][1] > three_ship_coordinates[1][1]
+    elsif three_ship_coordinates[0][0] > three_ship_coordinates[1][0]
       if (longitude + 1) > 3
         third_computer_coordinate = computer_board.coordinates[@longitude - 2][@latitude]
       elsif (longitude - 2) < 0
@@ -147,9 +157,18 @@ class ComputerBoard
     third_computer_coordinate
   end
 
+  def any_dupicate_coordinates
+    if two_ship_coordinates.any? {|coord| three_ship_coordinates.include?(coord)}
+      invalid_coordinate
+    else
+      true
+    end
+  end
+
   def invalid_coordinate
     false
   end
 end
 
 a = ComputerBoard.new
+# a.get_computer_coordinates_three_ship
