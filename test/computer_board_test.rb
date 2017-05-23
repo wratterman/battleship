@@ -24,7 +24,7 @@ class ComputerBoardTest < Minitest::Test
 
   def test_it_accesses_coordinates_from_board_file
     c = ComputerBoard.new
-    var = c.first_cord
+    var = c.random_coordinate
     first_var = var[0]
     second_var = var[1]
 
@@ -32,7 +32,7 @@ class ComputerBoardTest < Minitest::Test
     assert (("1".."4").to_a).include?(second_var)
   end
 
-  def test_it_runs_first_cord_method_and_stores_through_get_coordinates_method
+  def test_it_runs_random_coordinate_method_and_stores_through_get_coordinates_method
     c = ComputerBoard.new
     var = c.get_computer_coordinates_two_ship.join
     first_var = var[0]
@@ -42,7 +42,7 @@ class ComputerBoardTest < Minitest::Test
     assert (("1".."4").to_a).include?(second_var)
   end
 
-  def test_it_stores_first_cord_into_two_ship_coordinates
+  def test_it_stores_random_coordinate_into_two_ship_coordinates
     c = ComputerBoard.new
     c.get_computer_coordinates_two_ship.join
     var = c.two_ship_coordinates.join
@@ -53,7 +53,21 @@ class ComputerBoardTest < Minitest::Test
     assert (("1".."4").to_a).include?(second_var)
   end
 
+  def test_it_updates_longitude_based_on_random_cordinate_position_in_original_board
+    c = ComputerBoard.new
+    c.get_computer_coordinates_two_ship
+    var = c.longitude
 
+    assert (0 .. 3).include?(var)
+  end
+
+  def test_it_updates_latitude_based_on_random_cordinate_position_in_original_board
+    c = ComputerBoard.new
+    c.get_computer_coordinates_two_ship
+    var = c.latitude
+
+    assert (0 .. 3).include?(var)
+  end
 
   # def test_it_has_a_first_coordinate_method
   #   c = ComputerBoard.new
