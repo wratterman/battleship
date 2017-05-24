@@ -86,21 +86,4 @@ class ComputerBoardTest < Minitest::Test
     assert (("A".."D").to_a).include?(fifth_var)
     assert (("1".."4").to_a).include?(sixth_var)
   end
-
-  # def test_it_has_a_first_coordinate_method
-  #   c = ComputerBoard.new
-  #   expected = c.computer_board.coordinates.any?
-  #   actual = c.first_cord
-  #
-  #   assert_equal expected, actual
-  # end
-  #
-  # def test_it_has_a_second_coordinate_method
-  #   c = ComputerBoard.new
-  #   c.first_cord
-  #   expected = c.computer_board.coordinates.any?
-  #   actual = c.second_cord
-  #
-  #   assert_equal expected, actual
-  # end
 end
