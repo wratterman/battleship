@@ -3,7 +3,7 @@ require './lib/messages'
 
 class PlayerBoard
 
-  attr_reader :player_board, :message, :user_two_unit_ship, :user_three_unit_ship, :first_coord, :second_coord, :third_coord
+  attr_reader :player_board, :message, :user_two_unit_ship, :user_three_unit_ship, :first_coord, :second_coord, :third_coord, :show_user_board
 
   def initialize
     @player_board = Board.new
@@ -13,6 +13,7 @@ class PlayerBoard
     @first_coord = first_coord
     @second_coord = second_coord
     @third_coord = third_coord
+    @show_user_board = Board.new.print_board
   end
 
   def place_ships
@@ -20,6 +21,7 @@ class PlayerBoard
     place_two_unit_ship
     puts "Enter the squares for the three_unit ship: "
     place_three_unit_ship
+    puts show_user_board + "\n" + "Your ships have been placed"
   end
 
   def place_two_unit_ship
@@ -32,6 +34,7 @@ class PlayerBoard
     until check_if_valid(@first_coord) == true
       get_first_coordinate
     end
+    @show_user_board.gsub!(first_coord, "B ")
     @user_two_unit_ship << first_coord
   end
 
@@ -80,6 +83,7 @@ class PlayerBoard
     until second_coord_is_valid(@second_coord) == true
       get_second_coorindate
     end
+    @show_user_board.gsub!(second_coord, "B")
     @user_two_unit_ship << second_coord
   end
 
@@ -142,6 +146,7 @@ class PlayerBoard
     until check_if_valid(@first_coord) == true && check_if_unit_has_been_taken_by_other_boat(@first_coord) == true
       get_first_coordinate
     end
+    @show_user_board.gsub!(first_coord, "B")
     @user_three_unit_ship << first_coord
   end
 
@@ -159,6 +164,7 @@ class PlayerBoard
     until other_second_coord_is_valid(@second_coord) == true
       get_second_coorindate
     end
+    @show_user_board.gsub!(second_coord, "B")
     @user_three_unit_ship << second_coord
   end
 
@@ -206,6 +212,7 @@ class PlayerBoard
     until last_coord_is_valid(@third_coord) == true
       get_third_coordinate
     end
+    @show_user_board.gsub!(third_coord, "B")
     @user_three_unit_ship << third_coord
   end
 
@@ -276,10 +283,8 @@ class PlayerBoard
 
   def check_for_quit(input)
     if input.upcase == "Q"
-      message.quit_game
+      puts message.quit_game
       abort
     end
   end
 end
-
-a = PlayerBoard.new

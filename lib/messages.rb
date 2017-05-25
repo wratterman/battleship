@@ -67,4 +67,8 @@ class Messages
   def win_game
     "You WON! Let's just hope you were the good guy in this scenario..."
   end
+
+  def losing_message
+    "You lost... to the computer. \nWow. Congrats, you lost to a Random Number Generator"
+  end
 end

@@ -167,6 +167,3 @@ class ComputerBoard
     false
   end
 end
-
-a = ComputerBoard.new
-# a.get_computer_coordinates_three_ship

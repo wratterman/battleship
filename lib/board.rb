@@ -44,6 +44,3 @@ class Board
     "\n=============================="
   end
 end
-
-a = Board.new
-puts a.print_board

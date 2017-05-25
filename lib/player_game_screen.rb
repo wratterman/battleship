@@ -3,28 +3,25 @@ require './lib/computer_board'
 require './lib/board'
 require './lib/messages'
 require './lib/computer_shot'
-require '.lib/battleship'
 
 class PlayerGameScreen
 
-attr_reader :player_board, :computer_board, :display_board, :message, :computer_ships, :player_shot, :user_shot_list, :user_ships
-attr_reader :sink_small_boat, :sink_big_boat #:computer
-# attr_accessor :game_won
+attr_reader :player_board, :computer_board, :display_board, :message, :computer_ships, :player_shot, :user_shot_list
+attr_reader :sink_small_boat, :sink_big_boat, :game_won
 
   def initialize
     @player_board   = PlayerBoard.new
     @computer_board = ComputerBoard.new
     @display_board  = Board.new.print_board
     @message        = Messages.new
-    # @computer     = ComputerShot.new
     @user_shot_list = []
+    @game_won       = false
   end
 
   def start_new_game
-    player_board.place_ships
     computer_board.get_coordinates
     @computer_ships = [computer_board.get_computer_coordinates_two_ship, computer_board.get_computer_coordinates_three_ship]
-    @user_ships = [player_board.user_two_unit_ship, player_board.user_three_unit_ship]
+    puts "CPU has placed it's ships"
   end
 
   def player_turn
@@ -32,6 +29,7 @@ attr_reader :sink_small_boat, :sink_big_boat #:computer
     @player_shot = gets.chomp.upcase
     check_for_quit(player_shot)
     confirm_valid_shot(@player_shot)
+    end_turn
   end
 
   def end_turn
@@ -43,7 +41,6 @@ attr_reader :sink_small_boat, :sink_big_boat #:computer
 
   def user_decision(info)
     if info == ""
-      # @computer.computer_turn
     else
       end_turn
     end
@@ -131,6 +128,7 @@ attr_reader :sink_small_boat, :sink_big_boat #:computer
     if sink_small_boat == "sunk" && sink_big_boat == "sunk"
       p win_game_message
       p "It only took you #{user_shot_list.length} shots to do it!"
+      @game_won = true
       @game_won == true
     elsif sink_small_boat == true
       @sink_small_boat = "sunk"
@@ -142,7 +140,7 @@ attr_reader :sink_small_boat, :sink_big_boat #:computer
     end
   end
 
-  def sunk_two_unit_shipquit
+  def sunk_two_unit_ship
     if computer_ships[0].empty?
       @sink_small_boat = true
     else
@@ -210,4 +208,3 @@ attr_reader :sink_small_boat, :sink_big_boat #:computer
     end
   end
 end
-a = PlayerGameScreen.new
