@@ -9,11 +9,11 @@ class Messages
   end
 
   def instructions
-    "Out in the open ocean, a storm approaches. Not one that brings\nthunder nor lightning. This storm is your challenger, and they\nbring ships and fire power.... continue later"
+    "Out in the open ocean, a storm approaches. Not one that brings\nthunder nor lightning. This storm is your challenger, and they\nbring ships and fire power.... continue later\n"
   end
 
   def starting_new_game
-    "Staring game..."
+    "Staring game...\n"
   end
 
   def invalid_input
@@ -22,6 +22,10 @@ class Messages
 
   def invalid_input_overlap
     "*BUZZ* Invalid input. You already have a ship placed there. \nDon't make this a habit, it might cost you in the open ocean."
+  end
+
+  def invalid_shot_location
+    "INVALID! You already shot at that coordinate."
   end
 
   def invalid_input_too_many_units_away_two_ship

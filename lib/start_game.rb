@@ -5,17 +5,40 @@ class StartGame
 
   def initialize
     @message = Messages.new
+    # @game = Battleship.new
   end
 
   def start_game
-    message.welcome + "\n\n" + message.game_main_menu
+    puts message.welcome + "\n\n" + message.game_main_menu
+    answer = gets.chomp.upcase
+    user_choice(answer)
   end
+
+  def user_choice(input)
+    if input == "I"
+      read_instructions
+    elsif input == "P"
+      play_game
+    elsif input == "Q"
+      quit_game
+    else
+      p "Invalid Input. Please Reenter: "
+      start_game
+    end
+  end
+
 
   def read_instructions
-    message.instructions
+    puts message.instructions
+    start_game
   end
 
-  def quit
-    message.quit_game
+  def play_game
+    game.begin_new_game
+  end
+
+  def quit_game
+    puts message.quit_game
+    abort
   end
 end

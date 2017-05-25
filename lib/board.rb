@@ -1,7 +1,8 @@
 class Board
 
   def print_board
-    "\n" + title_row + "\n" + top_row + second_row + "\n" + third_row + "\n" + fourth_row + "\n" + fifth_row + "\n" + sixth_row + last_row
+    printed_board = "\n" + title_row + "\n" + top_row + second_row + "\n" + third_row + "\n" + fourth_row + "\n" + fifth_row + "\n" + sixth_row + last_row
+    printed_board
   end
 
   def coordinates

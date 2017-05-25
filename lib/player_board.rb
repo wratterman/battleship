@@ -38,6 +38,7 @@ class PlayerBoard
   def get_first_coordinate
     puts "Please enter first coordinate: "
     first_coord = gets.chomp
+    check_for_quit(first_coord)
     @first_coord = first_coord.upcase
   end
 
@@ -70,6 +71,7 @@ class PlayerBoard
   def get_second_coorindate
     puts "Please enter second coordinate: "
     second_coord = gets.chomp
+    check_for_quit(second_coord)
     @second_coord = second_coord.upcase!
   end
 
@@ -210,6 +212,7 @@ class PlayerBoard
   def get_third_coordinate
     puts "Please enter third coordinate: "
     third_coord = gets.chomp
+    check_for_quit(third_coord)
     @third_coord = third_coord.upcase
   end
 
@@ -268,6 +271,13 @@ class PlayerBoard
       false
     else
       true
+    end
+  end
+
+  def check_for_quit(input)
+    if input.upcase == "Q"
+      message.quit_game
+      abort
     end
   end
 end
