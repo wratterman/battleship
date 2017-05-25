@@ -5,7 +5,7 @@ require './lib/player_game_screen'
 
 class ComputerShot
 
-  attr_reader :board, :comp_shot_list, :computer_shot, :sink_small_boat, :sink_big_boat, :player_board, :message, :game_won, :user_ships
+  attr_reader :board, :comp_shot_list, :computer_shot, :sink_small_boat, :sink_big_boat, :player_board, :message, :game_won, :user_ships, :display_board
 
   def initialize
     @board          = Board.new
@@ -13,6 +13,7 @@ class ComputerShot
     @message        = Messages.new
     @game_won       = false
     @player_board   = PlayerBoard.new
+    @display_board  = Board.new.print_board
   end
 
   def start_new_game
@@ -24,6 +25,7 @@ class ComputerShot
     @computer_shot = board.coordinates.sample.sample
     puts "The CPU shot at #{computer_shot}."
     confirm_valid_shot(@computer_shot)
+    shot_map
   end
 
   def confirm_valid_shot(input)
@@ -50,9 +52,11 @@ class ComputerShot
   def check_if_hit
     if correct_coordinate? == true
       @comp_shot_list << computer_shot
+      @display_board.gsub!(computer_shot, "H")
       puts "The CPU Hit your ship!"
     else
       @comp_shot_list << computer_shot
+      @display_board.gsub!(computer_shot, "m")
       puts "The CPU Missed everything!"
     end
   end
@@ -130,4 +134,17 @@ class ComputerShot
   def lose_message
     message.losing_message
   end
+
+  def shot_map
+    puts "Press V to view current map of the CPUs shots. Press Enter to start new turn: "
+    answer = gets.chomp
+    view_map(answer)
+  end
+
+  def view_map(input)
+    if input.upcase == "V"
+      puts display_board
+    end
+  end
+
 end

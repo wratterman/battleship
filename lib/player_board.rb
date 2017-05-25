@@ -83,7 +83,7 @@ class PlayerBoard
     until second_coord_is_valid(@second_coord) == true
       get_second_coorindate
     end
-    @show_user_board.gsub!(second_coord, "B")
+    @show_user_board.gsub!(second_coord, "B ")
     @user_two_unit_ship << second_coord
   end
 
@@ -146,7 +146,7 @@ class PlayerBoard
     until check_if_valid(@first_coord) == true && check_if_unit_has_been_taken_by_other_boat(@first_coord) == true
       get_first_coordinate
     end
-    @show_user_board.gsub!(first_coord, "B")
+    @show_user_board.gsub!(first_coord, "B ")
     @user_three_unit_ship << first_coord
   end
 
@@ -164,7 +164,7 @@ class PlayerBoard
     until other_second_coord_is_valid(@second_coord) == true
       get_second_coorindate
     end
-    @show_user_board.gsub!(second_coord, "B")
+    @show_user_board.gsub!(second_coord, "B ")
     @user_three_unit_ship << second_coord
   end
 
@@ -212,7 +212,7 @@ class PlayerBoard
     until last_coord_is_valid(@third_coord) == true
       get_third_coordinate
     end
-    @show_user_board.gsub!(third_coord, "B")
+    @show_user_board.gsub!(third_coord, "B ")
     @user_three_unit_ship << third_coord
   end
 
