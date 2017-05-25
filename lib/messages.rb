@@ -39,4 +39,28 @@ class Messages
   def two_unit_ship_placement
     "I have laid out my ships on the grid.\nYou now need to layout your two ships.\nThe first is two units long and the\nsecond is three units long.\nThe grid has A1 at the top left and D4 at the bottom right.\n\nEnter the squares for the two-unit ship:"
   end
+
+  def player_shot
+    "Enter Coordinates of desired shot: "
+  end
+
+  def hit_message
+    "You hit the computer's ship!"
+  end
+
+  def miss_message
+    "LOLZ! You missed"
+  end
+
+  def sink_message_two_ship
+    "You sunk my little ship"
+  end
+
+  def sink_message_three_ship
+    "You sunk my battleship!"
+  end
+
+  def win_game
+    "You WON! Let's just hope you were the good guy in this scenario..."
+  end
 end

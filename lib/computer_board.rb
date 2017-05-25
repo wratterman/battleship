@@ -19,7 +19,7 @@ class ComputerBoard
       get_computer_coordinates_three_ship
     end
 
-    print "Two Ships: #{@two_ship_coordinates}, Three Ship: #{@three_ship_coordinates}"
+    # print "Two Ships: #{@two_ship_coordinates}, Three Ship: #{@three_ship_coordinates}"
   end
 
   def get_computer_coordinates_two_ship

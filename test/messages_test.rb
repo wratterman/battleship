@@ -47,7 +47,7 @@ class MessagesTest < Minitest::Test
 
   def test_it_has_an_invalid_input_message
     m = Messages.new
-    expected = "*BUZZ* Invalid input.\nDon't make this a habit, it might cost you in the open ocean."
+    expected = "*BUZZ* Invalid input. That coordinate doesn't exist on the board.\nDon't make this a habit, it might cost you in the open ocean."
     actual = m.invalid_input
 
     assert_equal expected, actual
