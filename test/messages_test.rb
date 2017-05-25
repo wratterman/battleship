@@ -31,7 +31,7 @@ class MessagesTest < Minitest::Test
 
   def test_it_has_instructions
     m = Messages.new
-    expected = "Out in the open ocean, a storm approaches. Not one that brings\nthunder nor lightning. This storm is your challenger, and they\nbring ships and fire power.... continue later"
+    expected = "Out in the open ocean, a storm approaches. Not one that brings\nthunder nor lightning. This storm is your challenger, and they\nbring ships and fire power.... \nThe rules are the same as regular battleship, only with two ships and a smaller board. \nIf you need to know how to play battleship, Google it."
     actual = m.instructions
 
     assert_equal expected, actual

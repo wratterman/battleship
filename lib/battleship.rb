@@ -43,6 +43,7 @@ class Battleship
 
   def begin_new_game
     player.start_new_game
+    start_time
     cpu.start_new_game
     turns
   end
@@ -59,6 +60,8 @@ class Battleship
       user_turn
       cpu_turn
     end
+    end_time
+    puts "Your game only took you #{game_time} seconds to do it!"
     play_again
   end
 
@@ -92,6 +95,18 @@ class Battleship
     else
       puts "Invalid input. Please try again."
     end
+  end
+
+  def start_time
+    Time.now
+  end
+
+  def end_time
+    Time.now
+  end
+
+  def game_time
+    start_time - end_time
   end
 end
 

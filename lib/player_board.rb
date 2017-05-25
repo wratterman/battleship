@@ -17,11 +17,11 @@ class PlayerBoard
   end
 
   def place_ships
-    puts message.two_unit_ship_placement
+    puts message.two_unit_ship_placement + " or (q)uit"
     place_two_unit_ship
     puts "Enter the squares for the three_unit ship: "
-    place_three_unit_ship
-    puts show_user_board + "\n" + "Your ships have been placed"
+    place_three_unit_ship 
+    puts show_user_board + "\n" + "Your ships have been placed" + "\n" + "Prepare to fire first shot."
   end
 
   def place_two_unit_ship

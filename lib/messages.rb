@@ -9,11 +9,11 @@ class Messages
   end
 
   def instructions
-    "Out in the open ocean, a storm approaches. Not one that brings\nthunder nor lightning. This storm is your challenger, and they\nbring ships and fire power.... continue later\n"
+    "Out in the open ocean, a storm approaches. Not one that brings\nthunder nor lightning. This storm is your challenger, and they\nbring ships and fire power.... \nThe rules are the same as regular battleship, only with two ships and a smaller board. \nIf you need to know how to play battleship, Google it."
   end
 
   def starting_new_game
-    "Staring game...\n"
+    "Staring game..."
   end
 
   def invalid_input

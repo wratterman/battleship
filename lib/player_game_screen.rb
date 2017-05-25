@@ -27,13 +27,14 @@ attr_reader :sink_small_boat, :sink_big_boat, :game_won
   def player_turn
     player_shot_message
     @player_shot = gets.chomp.upcase
+    # check_for_mistake_enter(player_shot)
     check_for_quit(player_shot)
-    confirm_valid_shot(@player_shot)
+    confirm_valid_shot(player_shot)
     end_turn
   end
 
   def end_turn
-    p "Press ENTER to end turn: "
+    p "Press ENTER to end turn: " + " or (q)uit"
     choice = gets.chomp
     check_for_quit(choice)
     user_decision(choice)
@@ -186,7 +187,7 @@ attr_reader :sink_small_boat, :sink_big_boat, :game_won
   end
 
   def player_shot_message
-    p message.player_shot
+    p message.player_shot + " or (q)uit"
   end
 
   def player_hit_message
@@ -208,3 +209,11 @@ attr_reader :sink_small_boat, :sink_big_boat, :game_won
     end
   end
 end
+
+# def check_for_mistake_enter(input)
+#   if input == ""
+#     return player_turn
+#   else
+#     return input = input
+#   end
+# end
