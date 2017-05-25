@@ -52,11 +52,11 @@ class ComputerShot
   def check_if_hit
     if correct_coordinate? == true
       @comp_shot_list << computer_shot
-      @display_board.gsub!(computer_shot, "H")
+      @display_board.gsub!(computer_shot, "H ")
       puts "The CPU Hit your ship!"
     else
       @comp_shot_list << computer_shot
-      @display_board.gsub!(computer_shot, "m")
+      @display_board.gsub!(computer_shot, "m ")
       puts "The CPU Missed everything!"
     end
   end

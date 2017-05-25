@@ -59,6 +59,7 @@ class Battleship
       user_turn
       cpu_turn
     end
+    play_again
   end
 
   def user_turn
@@ -72,6 +73,25 @@ class Battleship
   def quit_game
     puts message.quit_game
     abort
+  end
+
+  def play_again
+    puts "Would you like to play again?"
+    puts "(y)es or (n)o? "
+    response = gets.chomp
+    play_again_choice(response)
+  end
+
+  def play_again_choice(input)
+    if input.upcase == "Y"
+      puts message.starting_new_game
+      start_game
+    elsif input.upcase == "N"
+      puts quit_game
+      abort
+    else
+      puts "Invalid input. Please try again."
+    end
   end
 end
 
